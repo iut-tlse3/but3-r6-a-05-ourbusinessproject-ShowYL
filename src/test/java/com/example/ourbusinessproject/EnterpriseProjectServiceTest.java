@@ -9,7 +9,6 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
@@ -47,8 +46,7 @@ class EnterpriseProjectServiceTest {
                 "a name",
                 "a description",
                 "a contact name",
-                "acontact@email.com"
-        );
+                "acontact@email.com");
         // then: the persist method is invoked on the entity manager
         verify(entityManager).persist(enterprise);
         // and: the service asks the entity manager to synchronize with the database
