@@ -1,13 +1,13 @@
 package com.example.ourbusinessproject;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Entity
 public class Enterprise {
@@ -32,7 +32,8 @@ public class Enterprise {
     @Email
     private String contactEmail;
 
-
+    @OneToMany
+    private Collection<Project> projects;
 
     public Long getId() {
         return id;
@@ -68,5 +69,16 @@ public class Enterprise {
 
     public String getContactEmail() {
         return contactEmail;
+    }
+
+    public void addProject(Project p){
+        if (this.projects == null){
+            this.projects = new ArrayList<Project>();
+        }
+        this.projects.add(p);
+    }
+
+    public Collection<Project> getProjects() {
+        return projects;
     }
 }

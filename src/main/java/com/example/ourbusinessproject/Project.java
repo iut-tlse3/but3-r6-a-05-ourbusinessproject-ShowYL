@@ -41,6 +41,10 @@ public class Project {
     }
 
     public void setEnterprise(Enterprise enterprise) {
+        if (enterprise == null){
+            return;
+        }
+        enterprise.addProject(this);
         this.enterprise = enterprise;
     }
 
