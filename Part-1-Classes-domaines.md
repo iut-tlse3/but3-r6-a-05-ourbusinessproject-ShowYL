@@ -34,7 +34,7 @@ https://gist.github.com/FranckSilvestre/fe2596ff0b9b433deeb44c044061bc25
 ## 3. Correspondance Objet / Relationnel
 
 1. Complétez les classes Project et Enterprise de telle sorte que les objets instances de ces 
-classes puissent être sauvegardés en base de donnée relationnelle. 
+classes puissent être sauvegardés en base de donnée relationnelle.
 Les annotations JPA devront-être utilisées pour décrire la correspondance objet-relationnelle.
 À ce stade, il n'est pas demandé de décrire les relations entre les entités.
 
