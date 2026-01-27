@@ -32,7 +32,7 @@ public class Enterprise {
     @Email
     private String contactEmail;
 
-    @OneToMany
+    @OneToMany(mappedBy = "enterprise")
     private Collection<Project> projects;
 
     public Long getId() {

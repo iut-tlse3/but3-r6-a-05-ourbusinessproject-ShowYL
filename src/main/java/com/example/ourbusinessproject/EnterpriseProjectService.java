@@ -10,7 +10,7 @@ public class EnterpriseProjectService {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public EnterpriseProjectService(EntityManager entityManager){
+    public EnterpriseProjectService(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
@@ -18,17 +18,23 @@ public class EnterpriseProjectService {
         return entityManager;
     }
 
-    public Project newProject(String title, String description, Enterprise enterprise){
+    public Project newProject(String title, String description, Enterprise enterprise) {
         Project p = new Project();
         p.setTitle(title);
         p.setDescription(description);
         p.setEnterprise(enterprise);
+
+        if ( enterprise != null ) {
+            enterprise.addProject(p);
+        }
+
         this.entityManager.persist(p);
         this.entityManager.flush();
         return p;
+
     }
 
-    public Enterprise newEnterprise(String name, String description, String contactName, String contactEmail){
+    public Enterprise newEnterprise(String name, String description, String contactName, String contactEmail) {
         Enterprise e = new Enterprise();
         e.setName(name);
         e.setDescription(description);
@@ -39,11 +45,11 @@ public class EnterpriseProjectService {
         return e;
     }
 
-    public Project findProjectById(Long id){
+    public Project findProjectById(Long id) {
         return this.entityManager.find(Project.class, id);
     }
 
-    public Enterprise findEnterpriseById(Long id){
+    public Enterprise findEnterpriseById(Long id) {
         return this.entityManager.find(Enterprise.class, id);
     }
 }
