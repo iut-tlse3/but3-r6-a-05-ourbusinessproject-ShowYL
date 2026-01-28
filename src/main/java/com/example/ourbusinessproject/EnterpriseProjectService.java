@@ -26,15 +26,10 @@ public class EnterpriseProjectService {
         p.setTitle(title);
         p.setDescription(description);
         p.setEnterprise(enterprise);
-
-        if ( enterprise != null ) {
-            enterprise.addProject(p);
-        }
-
         this.entityManager.persist(p);
         this.entityManager.flush();
+        enterprise.addProject(p);
         return p;
-
     }
 
     public Enterprise newEnterprise(String name, String description, String contactName, String contactEmail) {
