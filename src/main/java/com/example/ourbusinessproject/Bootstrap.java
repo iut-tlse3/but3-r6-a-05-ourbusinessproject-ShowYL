@@ -1,9 +1,9 @@
 package com.example.ourbusinessproject;
 
 import jakarta.annotation.PostConstruct;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class Bootstrap {
 
     private InitializationService initializationService;
