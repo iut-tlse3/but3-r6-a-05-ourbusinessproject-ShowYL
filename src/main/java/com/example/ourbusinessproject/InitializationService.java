@@ -19,6 +19,9 @@ public class InitializationService {
 
     @Transactional
     public void initProjects() {
+        /*
+        Cette méthode donne une transaction au sens sql ce qui fait que si une erreur se produit, un rollback a lieu.
+         */
         enterprise1 = enterpriseProjectService.newEnterprise("Marc", "Ceci est une entreprise", "Marc", "faregrg@gmail.com");
         enterprise2 = enterpriseProjectService.newEnterprise("Bruno", "Ceci est une entreprise", "Bruno", "faregrg@gmail.com");
 
