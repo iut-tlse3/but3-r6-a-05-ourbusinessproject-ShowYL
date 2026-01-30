@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -14,6 +15,7 @@ public class PartnershipService {
     @PersistenceContext
     private EntityManager entityManager;
 
+    @Transactional
     public Partnership newPartnership(Project p, Enterprise partner) {
         var partnership = new Partnership();
         partnership.setProject(this.entityManager.merge(p));
@@ -24,8 +26,9 @@ public class PartnershipService {
         return partnership;
     }
 
+    @Transactional
     public void remove(Partnership partnership) {
-        this.entityManager.remove(partnership);
+        this.entityManager.remove(this.entityManager.merge(partnership));
         this.entityManager.flush();
     }
 
