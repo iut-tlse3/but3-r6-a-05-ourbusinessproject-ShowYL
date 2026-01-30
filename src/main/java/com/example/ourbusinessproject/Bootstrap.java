@@ -8,7 +8,7 @@ public class Bootstrap {
 
     private InitializationService initializationService;
 
-    public Bootstrap(InitializationService initializationService){
+    public Bootstrap(InitializationService initializationService) {
         this.initializationService = initializationService;
     }
 
@@ -17,9 +17,10 @@ public class Bootstrap {
     }
 
     @PostConstruct
-    public void init(){
+    public void init() {
         try {
             this.initializationService.initProjects();
+            this.initializationService.initPartnerships();
         } catch (RuntimeException e) {
             return;
         }

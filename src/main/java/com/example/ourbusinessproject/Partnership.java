@@ -16,14 +16,14 @@ public class Partnership {
     private Date creationDate;
 
     @NotNull
-    @OneToOne
+    @ManyToOne
     private Enterprise enterprise;
 
     @NotNull
-    @OneToOne
+    @ManyToOne
     private Project project;
 
-    public Long getId(){
+    public Long getId() {
         return this.id;
     }
 
